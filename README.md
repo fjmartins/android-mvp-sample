@@ -7,7 +7,7 @@
 - Java 8 Lambda Expressions
 - Gradle
 
-* Third-party Libraries used: *
+# Third-party Libraries used:
 
 - Retrofit (To Call Google's Geocode API: )
 - RxJava:

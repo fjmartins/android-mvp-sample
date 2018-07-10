@@ -43,7 +43,7 @@ public class MapsView extends AppCompatActivity implements OnMapReadyCallback, M
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         setPresenter(new MapsPresenter());
-
+        presenter.setDataManager(new DataManager(MapsView.this));
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -170,7 +170,6 @@ public class MapsView extends AppCompatActivity implements OnMapReadyCallback, M
 
     @Override
     public void setPresenter(MapsContract.Presenter presenter) {
-        presenter.setDataManager(new DataManager(MapsView.this));
         presenter.subscribe(this);
         this.presenter = presenter;
     }

@@ -84,5 +84,7 @@ public class MapsPresenter extends BasePresenter implements MapsContract.Present
     public void unsubscribe() {
         this.view = null;
         this.model = null;
+        this.places = null;
+        this.selected = null;
     }
 }

@@ -74,7 +74,7 @@ public class MapsView extends AppCompatActivity implements OnMapReadyCallback, M
             case R.id.action_search: // User chose the "Search" action
                 presenter.searchRequested();
                 return true;
-            case R.id.action_save_or_delete: // User chose the "Save" action, saving location object
+            case R.id.action_save_or_delete: // User chose the "Save or Delete" action
                 if (presenter.isActionSave()) {
                     presenter.saveSelected();
                 } else {

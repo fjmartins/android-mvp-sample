@@ -22,7 +22,7 @@ public class DataManager implements DataManagerInterface {
             dataHelper.getDb().close();
     }
 
-    public long insertPlace(Place place) { //Returns inserted rows
+    public long insertPlace(Place place) { //Returns new row id
         // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
         values.put(PlaceContract.Place._ID, place.id);
@@ -30,10 +30,7 @@ public class DataManager implements DataManagerInterface {
         values.put(PlaceContract.Place.COLUMN_NAME_LAT, place.geometry.location.lat);
         values.put(PlaceContract.Place.COLUMN_NAME_LNG, place.geometry.location.lng);
 
-        // Insert the new row, returning the primary key value of the new row
-        long newRowId = dataHelper.getDb().insert(PlaceContract.Place.TABLE_NAME, null, values);
-
-        return newRowId;
+        return dataHelper.getDb().insert(PlaceContract.Place.TABLE_NAME, null, values);
     }
 
     public int updatePlace(Place place) { //Returns the number of updated rows
@@ -48,13 +45,11 @@ public class DataManager implements DataManagerInterface {
         String selection = PlaceContract.Place._ID + " LIKE ?";
         String[] selectionArgs = {place.id};
 
-        int count = dataHelper.getDb().update(
+        return dataHelper.getDb().update(
                 PlaceContract.Place.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
-
-        return count;
     }
 
     public int deletePlace(Place place) { // Returns the number of deleted rows
@@ -63,9 +58,16 @@ public class DataManager implements DataManagerInterface {
         // Specify arguments in placeholder order.
         String[] selectionArgs = {place.id};
         // Issue SQL statement.
-        int deletedRows = dataHelper.getDb().delete(PlaceContract.Place.TABLE_NAME, selection, selectionArgs);
+        return dataHelper.getDb().delete(PlaceContract.Place.TABLE_NAME, selection, selectionArgs);
+    }
 
-        return deletedRows;
+    public void deleteAll() {
+        // Define 'where' part of query.
+        String selection = " 'TRUE'";
+        // Specify arguments in placeholder order.
+        String[] selectionArgs = {};
+        // Issue SQL statement.
+        dataHelper.getDb().delete(PlaceContract.Place.TABLE_NAME, selection, selectionArgs);
     }
 
     public Place readPlace(String id) { //Returns a Place object

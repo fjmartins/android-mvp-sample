@@ -3,6 +3,7 @@ package com.itsmefabio.anothermaps.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.Gson;
 import com.squareup.moshi.Json;
 
 public class Place implements Parcelable {
@@ -48,4 +49,9 @@ public class Place implements Parcelable {
             return new Place[size];
         }
     };
+
+    @Override
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 }

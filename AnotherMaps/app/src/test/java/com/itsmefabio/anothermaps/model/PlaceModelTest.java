@@ -18,7 +18,7 @@ public class PlaceModelTest { //All tests should be independent
 
     private DataManager dataManager;
 
-    final Place place = new Place("ChIJ2eUgeAK6j4ARbn5u_wAGqWA", "1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA", new Geometry(new Location(37.4215421d, -122.0840106d)));
+    private final Place place = new Place("ChIJ2eUgeAK6j4ARbn5u_wAGqWA", "1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA", new Geometry(new Location(37.4215421d, -122.0840106d)));
 
     @Before
     public void setUp() {

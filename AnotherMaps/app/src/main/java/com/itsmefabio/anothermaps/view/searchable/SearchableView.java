@@ -47,6 +47,7 @@ public class SearchableView extends AppCompatActivity implements SearchableContr
         setContentView(R.layout.activity_searchable);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setPresenter(new SearchablePresenter());
 
         // Get the intent, verify the action and get the query

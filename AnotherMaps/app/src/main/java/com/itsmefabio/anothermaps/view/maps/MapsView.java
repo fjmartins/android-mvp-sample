@@ -55,6 +55,9 @@ public class MapsView extends AppCompatActivity implements OnMapReadyCallback, M
     private void handleIntent(Intent intent) {
         presenter.setPlaces(intent.getParcelableArrayListExtra(SearchableView.EXTRA_PLACES_RESULT));
         presenter.setSelected(intent.getParcelableExtra(SearchableView.EXTRA_FOCUS_PLACE));
+
+        if(!presenter.isSearchMode())
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

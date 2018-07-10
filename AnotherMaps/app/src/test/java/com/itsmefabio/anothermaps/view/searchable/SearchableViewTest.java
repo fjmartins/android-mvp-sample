@@ -1,32 +1,29 @@
 package com.itsmefabio.anothermaps.view.searchable;
 
-import com.itsmefabio.anothermaps.view.maps.MapsView;
-import com.itsmefabio.anothermaps.view.searchable.SearchablePresenter;
-import com.itsmefabio.anothermaps.view.searchable.SearchableView;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.robolectric.annotation.Config;
 
-import static org.mockito.ArgumentMatchers.any;
+import java.util.ArrayList;
+
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
+@Config(manifest = Config.NONE)
 public class SearchableViewTest {
 
-    SearchableView view;
+    private SearchableView view;
 
     @Mock
-    SearchablePresenter presenter;
+    private SearchablePresenter presenter;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         view = new SearchableView();
         view.setPresenter(presenter);
-
     }
 
     @After
@@ -41,7 +38,7 @@ public class SearchableViewTest {
 
     @Test
     public void selectResultTest() { // Asynchronous task
-        presenter.selectResult(any(), any());
-        verify(presenter).selectResult(any(), any());
+        presenter.selectResult(0, new ArrayList<>());
+        verify(presenter).selectResult(0, new ArrayList<>());
     }
 }

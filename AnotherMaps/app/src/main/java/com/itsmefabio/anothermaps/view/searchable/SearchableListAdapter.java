@@ -15,7 +15,7 @@ import java.util.List;
 
 public class SearchableListAdapter extends ArrayAdapter<String> {
 
-    List<String> items;
+    private List<String> items;
 
     public SearchableListAdapter(Context context, int textViewResourceId,
                                  List<String> items) {

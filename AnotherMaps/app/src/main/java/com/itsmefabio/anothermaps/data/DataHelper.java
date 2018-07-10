@@ -1,13 +1,10 @@
 package com.itsmefabio.anothermaps.data;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.itsmefabio.anothermaps.data.place.PlaceContract;
 import com.itsmefabio.anothermaps.data.place.PlaceSchema;
-import com.itsmefabio.anothermaps.model.Place;
 
 public class DataHelper extends SQLiteOpenHelper {
     // If you change the database schema, you must increment the database version.

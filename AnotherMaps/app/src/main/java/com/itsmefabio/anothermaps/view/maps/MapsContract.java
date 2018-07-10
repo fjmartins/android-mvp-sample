@@ -3,8 +3,8 @@ package com.itsmefabio.anothermaps.view.maps;
 import android.content.DialogInterface;
 
 import com.itsmefabio.anothermaps.model.Place;
-import com.itsmefabio.anothermaps.view.base.IBaseView;
 import com.itsmefabio.anothermaps.view.base.IBasePresenter;
+import com.itsmefabio.anothermaps.view.base.IBaseView;
 
 import java.util.List;
 

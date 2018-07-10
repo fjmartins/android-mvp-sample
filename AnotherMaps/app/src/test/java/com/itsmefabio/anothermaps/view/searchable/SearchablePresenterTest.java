@@ -1,12 +1,8 @@
 package com.itsmefabio.anothermaps.view.searchable;
 
-import com.itsmefabio.anothermaps.data.DataManager;
 import com.itsmefabio.anothermaps.model.Geometry;
 import com.itsmefabio.anothermaps.model.Location;
 import com.itsmefabio.anothermaps.model.Place;
-import com.itsmefabio.anothermaps.view.maps.MapsPresenter;
-import com.itsmefabio.anothermaps.view.searchable.SearchablePresenter;
-import com.itsmefabio.anothermaps.view.searchable.SearchableView;
 
 import org.junit.After;
 import org.junit.Before;
@@ -15,27 +11,28 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.robolectric.RobolectricTestRunner;
+import org.robolectric.annotation.Config;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
+@Config(manifest = Config.NONE)
 @RunWith(RobolectricTestRunner.class)
 public class SearchablePresenterTest {
 
-    SearchablePresenter presenter;
+    private SearchablePresenter presenter;
 
     @Mock
-    SearchableView view;
+    private SearchableView view;
 
-    Place germany = new Place("ChIJa76xwh5ymkcRW-WRjmtd6HU", "Germany", new Geometry(new Location(51.165691d,10.451526d)));
-    Place italy = new Place("ChIJA9KNRIL-1BIRb15jJFz1LOI", "Italy", new Geometry(new Location(41.87194d, 12.56738d)));
-    Place spain = new Place("ChIJi7xhMnjjQgwR7KNoB5Qs7KY", "Spain", new Geometry(new Location(40.46366700000001d, -3.74922d)));
+    private Place germany = new Place("ChIJa76xwh5ymkcRW-WRjmtd6HU", "Germany", new Geometry(new Location(51.165691d, 10.451526d)));
+    private Place italy = new Place("ChIJA9KNRIL-1BIRb15jJFz1LOI", "Italy", new Geometry(new Location(41.87194d, 12.56738d)));
+    private Place spain = new Place("ChIJi7xhMnjjQgwR7KNoB5Qs7KY", "Spain", new Geometry(new Location(40.46366700000001d, -3.74922d)));
 
-    List<Place> places = new ArrayList<>();
+    private List<Place> places = new ArrayList<>();
 
     @Before
     public void setUp() {

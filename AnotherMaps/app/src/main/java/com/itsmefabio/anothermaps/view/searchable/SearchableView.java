@@ -107,10 +107,17 @@ public class SearchableView extends AppCompatActivity implements SearchableContr
 
     @Override
     public void openMap(Place selected, List<Place> places) {
+        listView.setEnabled(false);
         Intent intent = new Intent(SearchableView.this, MapsView.class);
         intent.putParcelableArrayListExtra(EXTRA_PLACES_RESULT, (ArrayList<Place>) places);
         intent.putExtra(EXTRA_FOCUS_PLACE, selected);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        listView.setEnabled(true);
+        super.onResume();
     }
 
     @Override
